@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento Esportes IFRN</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/create_competitions.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <a href="{% url 'create_competitions' %}" class="logo"><img src="{% static 'accounts/images/logok.png' %}" class="logo"><span>Gerenciamento <p>Esportes</p></span>
+        </a>
+        
+        <ul class="navbar">
+            <li><a href="{% url 'create_competitions' %}" class="activate">Home</a></li>
+            <li><a href="{% url 'profile' %}">Meu Perfil</a></li>
+            <li><a href="#">Serviços</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="{% url 'login' %}" class="user"><i class="ri-user-fill"></i>Login</a>
+            <a href="{% url 'signup' %}">Cadastrar</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+
+    </header>    
+    
+    <div class="content">
+        <div class="text">
+            <h1>Crie <span class="esporte">Competições</span></h1>
+            <p>Aqui estão todas as informações e procedimentos que você 
+            irá realizar para cadastrar competições.</p>    
+        </div>
+        <div class="img">
+            <img src="{% static 'accounts/images/img60.png' %}" class="img">
+        </div>
+    </div>
+
+        <section class="container">
+            <div class="main-text">
+                <h2>Cadastre  uma  nova  Competição</h2>
+                <p>Realize uma nova competição cadastrando com um nome.</p>
+            </div>
+        </section>
+
+
+    <form class="camp" method="post">
+        {% csrf_token %}
+        <a>{{ form.as_p}}</a>
+        <button class="cadastrar" type="submit">Cadastrar</button>
+    </form>
+
+    <script type="text/javascript" src="{% static '/accounts/js/script.js' %}"/>
+</body>
+</html>

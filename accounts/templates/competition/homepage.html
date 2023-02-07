@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento Esportes</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/homepage.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="{% url 'mostrarcompeticoes' %}" class="logo"><img src="{% static 'accounts/images/logok.png' %}" class="logo"><span>Gerenciamento <p>Esportes</p></span>
+        </a>
+        
+        <ul class="navbar">
+            <li><a href="{% url 'mostrarcompeticoes' %}" class="activate">Home</a></li>
+            <li><a href="{% url 'profile' %}">Meu Perfil</a></li>
+            <li><a href="#">Serviços</a></li>
+        </ul>
+        
+        <div>
+            {% if user.is_authenticated %}
+            {% if user.image %}
+            <img class="photo" src="{{user.image.url}}">
+            {% endif %}
+            {% endif %}
+        </div>    
+
+    </header>    
+    
+    <div class="content">
+        <div class="text">
+            <h1>Escolha seu <span class="esporte">Esporte</span></h1>
+            <p>Escolha a competição e modalidade em que deseja participar 
+            e faça parte dos jogos locais IFRN.</p>    
+        </div>
+        <div class="img">
+            <img src="{% static 'accounts/images/imgprinc.png' %}" class="img">
+        </div>
+    </div>
+
+
+    <section class="container">
+        <div class="main-text">
+            <h2>Competições disponíveis</h2>
+            <p>Escolha uma das opções abaixo clicando, após você escolherá a modalidade.</p>
+        </div>
+    </section>
+        <div class="container-box">
+                <div class="infor">
+                    {%for nome in competicoes%}
+                    <a style="display:inline-block;align-items:center;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;
+                    border-radius: 10px;box-shadow: 1px 1px 10px #45EA14;margin:auto;font-size:18px;color:#000;background-color:#45EA14; margin-right: 50px;"href="{% url 'mostrarmodalidade' nome.id %}">{{nome}}</a> 
+                    {%endfor%}
+                </div>
+        </div>
+
+        <div>
+            <span class="afastar">
+                {% if competicoes.has_previous %}
+                    <a href="?page=1">&laquo; primeira</a>
+                    <a href="?page={{ competicoes.previous_page_number }}">anterior</a>
+                {% endif %}
+        
+                <span class="afastar">
+                    Página {{ competicoes.number }} de {{ competicoes.paginator.num_pages }}.
+                </span>
+        
+                {% if competicoes.has_next %}
+                    <a href="?page={{ competicoes.next_page_number }}">próxima</a>
+                    <a href="?page={{ competicoes.paginator.num_pages }}">última &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    <section class="about">
+        <div class="about-img">
+            <img src="{% static 'accounts/images/foto3.png' %}" class="img2">
+        </div>
+
+        <div class="about-text">
+            <h3>Sobre</h3>
+            <h2>Gerenciamento Esportes IFRN</h2>
+            <p>O sistema Gerenciamento de Esportes realiza todas as funções <br>IFRN sendo elas para realizar
+            competições em geral no Campus.<br> realize sua inscrição e participe das
+            competições<br> e modalidades</p>
+        </div>
+    </section>
+    
+    <section class="about">
+        <div class="about-text">
+            <h3 class="right">About</h3>
+            <h2 class="right">Gerenciamento Esportes IFRN</h2>
+            <p class="right">Lorem ipsum dolor sit amet, consectetur adipisicing<br> elit, sed do eiusmod
+            tempor incididunt ut labore et<br> dolore magna aliqua. Ut enim ad minim veniam,
+            quis<br> nostrud exercitation</p>
+        </div>
+        <div class="about-img">
+            <img src="{% static 'accounts/images/imgg.png' %}" class="img3">
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h3>GE IFRN</h3>
+            <h5>Redes Sociais</h5>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook' ></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+            </div>
+        </div>
+        
+        <div class="contact-box">
+            <h3>Links</h3>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+        </div>
+
+        <div class="contact-box">
+            <h3>Links</h3>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+        </div>
+
+        <div class="address">
+            <h3>Contact</h3>
+            <i class='bax bxs-map' ><span>Lorem ipsum, 2456</span></i>
+            <i class='bax bxs-envelope' ><span>GE@gmail.com</span></i>
+            <i class='bax bxs-phone' ><span>(12) 234 567 890</span></i>
+        </div>
+    </section>            
+    
+
+    <script type="text/javascript" src="{% static '/accounts/js/script.js' %}"/>
+</body>       
+</html>

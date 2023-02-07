@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento Esportes IFRN</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">    
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column">
+                <img src="{% static 'accounts/images/photocadaster.png' %}" class="fotologin">
+            </div>
+            <div class="second-column">
+                <img src="{% static 'accounts/images/logok.png' %}" class="logok">
+                <h2 class="title-criar">Gerenciamento <p>Esportes</p></h2>
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="oldpassword">
+                    Senha antiga {{ password_change_form.old_password }}
+                  </div>
+                  <div class="newpass1">
+                    Nova senha {{ password_change_form.new_password1 }}
+                  </div>
+                  <div class="newpass2">
+                    Repetir senha {{ password_change_form.new_password2 }}
+                  </div>
+              
+                  <button type="submit" class="btn btn-second">Alterar senha</button>
+                  <a href="{% url 'profile' %}" class="novo">cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

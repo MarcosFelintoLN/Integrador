@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento Esportes</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/mostrar_equipes.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="{% url 'mostrarcompeticoes' %}" class="logo"><img src="{% static 'accounts/images/logok.png' %}" class="logo"><span>Gerenciamento <p>Esportes</p></span>
+        </a>
+        
+        <ul class="navbar">
+            <li><a href="{% url 'mostrarcompeticoes' %}" class="activate">Home</a></li>
+            <li><a href="{% url 'profile' %}">Meu Perfil</a></li>
+            <li><a href="#">Serviços</a></li>
+        </ul>
+        
+        <div>
+            {% if user.is_authenticated %}
+            {% if user.image %}
+            <img class="photo" src="{{user.image.url}}">
+            {% endif %}
+            {% endif %}
+        </div>    
+
+    </header>    
+    
+    <div class="content">
+        <div class="text">
+            <h1>Crie <span class="esporte"> Equipes</span></h1>
+            <p>As equipes serão criadas para os estudantes do Campus IRFN 
+            fazerem parte e participarem.</p>    
+            <a class="arr" href="{% url 'create_teams' %}">Nova Equipe</a>
+        </div>
+        <div class="img">
+            <img src="{% static 'accounts/images/team.png' %}" class="img">
+        </div>
+        
+        
+    </div>
+
+
+    <section class="container">
+        <div class="main-text">
+            <h2>Suas Equipes Criadas</h2>
+            <p>Aqui estão as equipes que você criou, se deseja criar uma nova, <br>use o botão NOVA EQUIPE.</p>
+        </div>
+    </section>
+
+    {%for nome in equipes%}
+    <a style="display:inline-block;margin-left:70px;margin-bottom:150px;align-items:center;padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px;
+            border-radius: 10px;box-shadow: 1px 1px 10px #45EA14;font-size:18px;color:#000;background-color:#45EA14; margin-right: 50px;"href="#">{{nome}}</a>
+    {%endfor%}
+<section class="contact" id="contact">
+    <div class="contact-box">
+        <h3>GE IFRN</h3>
+        <h5>Redes Sociais</h5>
+        <div class="social">
+            <a href="#"><i class='bx bxl-facebook' ></i></a>
+            <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+        </div>
+    </div>
+    
+    <div class="contact-box">
+        <h3>Links</h3>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+    </div>
+
+    <div class="contact-box">
+        <h3>Links</h3>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+    </div>
+
+    <div class="address">
+        <h3>Contact</h3>
+        <i class='bax bxs-map' ><span>Lorem ipsum, 2456</span></i>
+        <i class='bax bxs-envelope' ><span>GE@gmail.com</span></i>
+        <i class='bax bxs-phone' ><span>(12) 234 567 890</span></i>
+    </div>
+</section>            
+
+
+
+</body>
+</html>

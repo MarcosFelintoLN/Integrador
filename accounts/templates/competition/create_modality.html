@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Modalidades</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/modality.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="{% url 'mostrarcompeticoes' %}" class="logo"><img src="{% static 'accounts/images/logok.png' %}" class="logo"><span>Gerenciamento <p>Esportes</p></span>
+        </a>
+        
+        <ul class="navbar">
+            <li><a href="{% url 'mostrarcompeticoes' %}" class="activate">Home</a></li>
+            <li><a href="{% url 'profile' %}">Meu Perfil</a></li>
+            <li><a href="#">Serviços</a></li>
+        </ul>
+
+        <div>
+            {% if user.is_authenticated %}
+            {% if user.image %}
+            <img class="photo" src="{{user.image.url}}">
+            {% endif %}
+            {% endif %}
+        </div> 
+
+    </header>    
+    
+    <div class="content">
+        <div class="text">
+            <h1>Crie sua <span class="esporte">Modalidade</span></h1>
+            <p>Escolha a competição e modalidade em que deseja participar 
+            e faça parte dos jogos locais IFRN.</p>    
+        </div>
+        <div class="img">
+            <img src="{% static 'accounts/images/telagem.png' %}" class="img">
+        </div>
+    </div>
+
+
+    <form class="atributes" method="post">
+        {% csrf_token %}
+        <div class="space">
+            Nome: {{ form.nome}}
+        </div>
+        <div class="space">
+            Gênero: {{ form.genero_modalidade}}
+        </div>
+        <div class="space">
+            Competição: {{ form.competicao1}}
+        </div class="space">
+        <button class="ar"type="submit">Cadastrar</button>
+    </form>
+
+    <script type="text/javascript" src="{% static '/accounts/js/script.js' %}"/>
+</body>
+</html>

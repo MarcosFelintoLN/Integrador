@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/profile.css' %}">
+  <title>Gerenciamento Esportes IFRN</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <a href="{% url 'mostrarcompeticoes' %}" class="logo"><img src="{% static 'accounts/images/logok.png' %}" class="logo"><span>Gerenciamento <p>Esportes</p></span>
+    </a>
+    
+    <ul class="navbar">
+        <li><a href="{% url 'mostrarcompeticoes' %}" class="activate">Home</a></li>
+        <li><a href="{% url 'profile' %}">Meu Perfil</a></li>
+        <li><a href="#">Serviços</a></li>
+    </ul>
+
+    <div>
+      {% if user.is_authenticated %}
+      {% if user.image %}
+      <img class="photo" src="{{user.image.url}}">
+      {% endif %}
+      {% endif %}
+  </div> 
+
+  </header>
+
+  <div class="main-text">
+    <h2>Aqui estão suas informações de conta</h2>
+    <p>Se quiser, você pode alterar sua senha ou sair de sua conta.</p>
+  </div>
+
+  <div align="right" class="img2">
+    <img src="{% static 'accounts/images/segundaimagem.png' %}" class="img2">
+</div>
+
+
+  <div class="information"> 
+    <h1>Matrícula: {{ request.user.username }}</h1>
+    <h1>Nome: {{ request.user.first_name }}</h1>
+    <h1>Sobrenome: {{ request.user.last_name }}</h1>
+    <h1>Curso: {{ request.user.course }}</h1>
+    <h1>Genero: {{request.user.genero}}</h1>
+    <h1>Período: {{request.user.periodo}}</h1>
+    <h1>Turno: {{ request.user.turno }}</h1>
+  </div>
+
+
+  <a class="ar" href="{% url 'change_profile' %}">Alterar Senha</a>
+  <a class="ar" href="{% url 'logout' %}">Sair</a>
+
+<script type="text/javascript" src="{% static '/accounts/js/script.js' %}"/>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciamento Esportes IFRN</title>
+    <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">  
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="content first-content">
+            <div class="first-column">
+                <img src="{% static 'accounts/images/foto login.png' %}" class="fotologin">
+            </div>
+            <div class="second-column">
+                <img src="{% static 'accounts/images/logok.png' %}" class="logok">
+                <h2 class="title-criar">Gerenciamento <p>Esportes</p></h2>
+                <p class="description2">Preencha os campos para fazer Login</p>
+                <form method="post">
+                      {% csrf_token %}
+                      <div class="username">
+                        Matrícula {{form.username}}
+                      </div>
+                      <div class="password">
+                         Senha {{ form.password }}
+                      </div>
+                  <button type="submit" href="{% url 'homepage' %}" class="btn btn-second">Entrar</button>
+                  <a href="{% url 'signup' %}" class="novo">Não Possui conta? Faça seu cadastro</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

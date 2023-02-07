@@ -1,0 +1,164 @@
+form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   
+}
+.username input, .password input{ 
+   height: 30px;
+   width: 180px;
+   color: rgb(0, 0, 0);
+   border: 1px solid ;
+   border-radius : 7px;
+   outline: none;
+   margin: 0px 0px 0px 40px;
+   text-decoration: none;
+   padding-left: 0px;
+   margin-top: 15px;
+}
+
+.oldpassword input, .newpass1 input, .newpass2 input{
+   height: 32px;
+   border: 1px solid ;
+   border-radius : 7px;
+   outline: none;
+   padding-left: 2px;
+   margin-top: 5px;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   
+}
+
+.logok{
+   width: 30px;
+   height: 30px;
+   justify-content: left;
+}
+
+.fotologin{
+   width: 300px;
+   height: 300px;
+}
+
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 140vh;
+   background-color: #5ECE70;
+   font-family: 'Poppins', sans-serif;
+   border-radius: 0px;
+   
+}
+
+.description2{
+   text-align: center;
+   font-size: 12px;
+   font-weight: 300;
+   color: black;
+}
+
+.title-criar {
+   color: black;
+   text-align: left;
+   font-size: 20px;
+   font-family: 'Poppins';
+   font-style: normal;
+}
+
+.btn {
+   border-radius: 10px;
+   text-transform: uppercase;
+   text-decoration: none;
+   color: #fff;
+   font-size: 10px;
+   padding: 10px 50px;
+   cursor: pointer;
+   font-weight: bold;
+   width: 150px;
+   align-self: center;
+   border-width: 0;
+   margin-top: 1rem;
+}
+
+.btn-second {
+   text-decoration: none;
+   background-color: #5ECE70;
+   border: 1px solid #5ECE70;
+   transition: background-color .5s;
+   text-align: center;
+}
+
+.novo {
+   margin-top: 50px;
+   text-decoration: none;
+   text-align: center;
+   color :#000;
+   font-size: 13px;
+}
+
+.btn-second:hover {
+   text-decoration: none;
+   background-color: #fff;
+   border: 1px solid #5ECE70;
+   color: #5ECE70;
+}
+
+.content{
+   background-color: white;
+   border-radius: 15px;
+   width: 850px;
+   height: 50%;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+
+}
+
+.content::before {
+   content: "";
+   position: absolute;
+   background-color: rgba(235, 238, 242, 1);
+   width: 40%;
+   height: 100%;
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+
+
+   left: 0%;
+}
+
+.title {
+   color: #fff;
+   font-size: 25px;
+   font-weight: bold;
+   line-height: 26px;
+}
+
+.first-content {
+   display: flex;
+}
+
+.first-content .second-column {
+   z-index: 11;
+}
+
+.first-column {
+   text-align: center;
+   width: 40%;
+   z-index: 10;
+   background-color: rgba(235, 238, 242, 1);
+}
+
+.second-column {
+   width: 60%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+}

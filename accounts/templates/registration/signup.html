@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'accounts/images/logok.png' %}">
+  <link rel="stylesheet" href="{% static 'accounts/css/signup.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&display=swap" rel="stylesheet">  
+  <title>Gerenciamento Esportes IFRN</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-image">
+        <img src="{% static 'accounts/images/fotocadastrar.png' %}" alt="">
+    </div>
+    <div class="form">
+      <form action="#" method="post" enctype="multipart/form-data">
+            <div class="form-header">
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                  <h2>{{ form.errors }}</h2>
+                    {% csrf_token %}
+
+                    <label for="firstname">Matrícula</label>
+                    {{ form.username }}
+                </div>
+                <div class="input-box">
+                  <label for="firstname">Primeiro Nome</label>
+                  {{ form.first_name}}
+              </div>
+              <div class="input-box">
+                <label for="firstname">OMG</label>
+                {{ form.image}}
+            </div>
+                <div class="input-box">
+                    <label for="lastname">Sobrenome</label>
+                    {{ form.last_name}}
+                </div>
+                <div class="input-box">
+                    <label for="number">Curso</label>
+                    {{ form.course }}
+                </div>
+                <div class="input-box">
+                    <label for="password">Senha</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="input-box">
+                    <label for="confirmPassword">Confirme sua Senha</label>
+                    {{ form.password2 }}
+                </div>
+                <div class="input-box">
+                  <label for="number">Gênero</label>
+                  {{ form.genero }}
+              </div>  
+              <div class="input-box">
+                <label for="number">Período</label>
+                {{ form.periodo}}
+            </div>
+            <div class="input-box">
+              <label for="number">Turno</label>
+              {{ form.turno }}
+          </div>  
+            </div>
+
+
+            <div class="cadastrar">
+                <button><a href="{% url 'login' %}">Cadastrar</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
